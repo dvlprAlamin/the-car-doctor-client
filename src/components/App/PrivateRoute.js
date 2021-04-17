@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
+import { GetContext } from '../../context';
 
 const PrivateRoute = ({ children, ...rest }) => {
-    // const { loggedInUser } = GetContext();
-    const loggedInUser = true
+    const { loggedInUser } = GetContext();
     return (
         <Route
             {...rest}

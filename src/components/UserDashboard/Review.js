@@ -5,13 +5,15 @@ import React, { useState } from 'react';
 import Loader from '../Shared/Loader';
 import PageTitle from '../Shared/PageTitle';
 import UserSidebar from '../Shared/Sidebar/UserSidebar';
+import Ratings from './Ratings';
 
 const Review = () => {
     const [imageURL, setImageURL] = useState('');
     const [imageName, setImageName] = useState('');
+    const [ratingValue, setRatingValue] = useState(0);
     const [loading, setLoading] = useState(false);
     const handleImageUpload = event => {
-        const imageData = new reviewData();
+        const imageData = new FormData();
         imageData.set('key', 'f722e3d0ff6c21590defd11ada10cc8b');
         imageData.append('image', event.target.files[0])
         axios.post('https://api.imgbb.com/1/upload', imageData)
@@ -31,11 +33,12 @@ const Review = () => {
         setReviewData(newReviewData);
 
     }
-    console.log(reviewData);
+    console.log(ratingValue);
     const handleSubmit = (e) => {
         e.preventDefault()
         const review = {
             ...reviewData,
+            ratingValue,
             image: imageURL
         }
         setLoading(true);
@@ -44,6 +47,7 @@ const Review = () => {
                 console.log(res.data);
                 res.data && e.target.reset();
                 setImageName('')
+                setRatingValue(0)
                 setLoading(false)
             })
             .catch(err => {
@@ -61,7 +65,7 @@ const Review = () => {
                             <Grid item lg={12}>
                                 <TextField
                                     fullWidth
-                                    name="title"
+                                    name="name"
                                     onBlur={blurHandler}
                                     variant="outlined"
                                     color="text-primary"
@@ -71,7 +75,7 @@ const Review = () => {
                             <Grid item lg={12}>
                                 <TextField
                                     fullWidth
-                                    name="fee"
+                                    name="designation"
                                     onBlur={blurHandler}
                                     variant="outlined"
                                     color="text-primary"
@@ -83,7 +87,7 @@ const Review = () => {
                                     style={{
                                         width: '100%',
                                         padding: 15,
-                                        border: '1px solid',
+                                        border: '1px solid lightgray',
                                         borderColor: '#202C45',
                                         borderRadius: 3,
                                         fontSize: 18
@@ -95,7 +99,7 @@ const Review = () => {
                                 />
                             </Grid>
                             <Grid item lg={12}>
-                                <Typography variant="h5" component="span">Choose Photo</Typography>
+                                <Typography variant="body1" component="span">Choose Photo</Typography>
                                 <input
                                     style={{ display: 'none' }}
                                     id="icon-button-file"
@@ -113,8 +117,14 @@ const Review = () => {
                                     <span>{imageName}</span>
                                 </label>
                             </Grid>
+                            <Grid item lg={12}>
+                                <Ratings
+                                    ratingValue={ratingValue}
+                                    setRatingValue={setRatingValue}
+                                />
+                            </Grid>
                         </Grid>
-                        <Button type="submit" disabled={loading} variant="contained" color="secondary" style={{ fontSize: 17, marginTop: 10 }}>Submit</Button>
+                        <Button type="submit" disabled={loading} variant="contained" color="secondary" style={{ fontSize: 17, marginTop: 30 }}>Submit</Button>
                         {loading && <Loader />}
                     </form>
                 </Paper>

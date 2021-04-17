@@ -3,12 +3,11 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { GetContext } from '../../context';
 
-const PaymentForm = () => {
+const PaymentForm = ({ paymentOrderToggler, setPaymentOrderToggler }) => {
     const { paymentSuccess, setPaymentSuccess, selectedService } = GetContext();
     const stripe = useStripe();
     const elements = useElements();
     const [paymentError, setPaymentError] = useState('')
-    // const [paymentSuccess, setPaymentSuccess] = useState('')
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -27,26 +26,27 @@ const PaymentForm = () => {
         } else {
             setPaymentError('')
             setPaymentSuccess(paymentMethod.id)
+            setPaymentOrderToggler(true);
+            event.target.reset();
             console.log('[PaymentMethod]', paymentMethod);
         }
     };
-
     return (
         <>
             <form onSubmit={handleSubmit}>
                 <CardElement />
-                <Typography style={{ marginTop: 20 }} variant="body1">{selectedService.fee && `Your service charged will be $${selectedService.fee}`}</Typography>
+                <Typography style={{ marginTop: 20 }} variant="body1">{`Your service charged will be $${selectedService.fee || 0}`}</Typography>
                 <Button
                     style={{ marginTop: 20 }}
                     variant="contained"
                     color="secondary"
                     type="submit"
-                    disabled={!stripe}>
-                    Pay
-            </Button>
+                    disabled={!stripe || paymentOrderToggler}>
+                    {!paymentOrderToggler ? 'Pay' : 'Paid'}
+                </Button>
             </form>
             {paymentError && <Typography color="secondary" variant="body1">{paymentError}</Typography>}
-            {paymentSuccess && <Typography style={{ color: '#008000' }} variant="body1">Payment successful</Typography>}
+            {paymentOrderToggler && <Typography style={{ color: '#008000' }} variant="body1">Payment successful</Typography>}
         </>
     );
 };

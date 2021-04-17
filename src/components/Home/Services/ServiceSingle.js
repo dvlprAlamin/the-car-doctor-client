@@ -1,17 +1,28 @@
-import { Button, Paper, Typography } from '@material-ui/core';
+import { Button, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router';
 import { GetContext } from '../../../context';
+
+const useStyle = makeStyles({
+    root: {
+        transition: 'all .3s linear',
+        '&:hover': {
+            transform: 'translateY(-5px)',
+            boxShadow: '0 0 15px rgba(0,0,0,.4)'
+        }
+    }
+})
 const ServiceSingle = ({ service }) => {
+    const { root } = useStyle();
     const history = useHistory()
     const { title, fee, image, description } = service;
-    const { setSelectedService } = GetContext()
+    const { setSelectedService, isAdmin } = GetContext()
     const selectServiceHandler = () => {
         setSelectedService(service)
-        history.push('/order')
+        history.push(isAdmin ? '/ordered-services' : '/order')
     }
     return (
-        <Paper>
+        <Paper className={root}>
             <img src={image} alt="" width="100%" />
             <div style={{ padding: 25 }}>
                 <Typography variant="h6">{title}</Typography>

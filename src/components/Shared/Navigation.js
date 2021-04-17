@@ -13,6 +13,7 @@ import { Button, Container } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import logo from '../../image/logo.png'
 import logoBlack from '../../image/logo-black.png'
+import { GetContext } from '../../context';
 const drawerWidth = 200;
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -94,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navigation = () => {
-    const isAdmin = false;
+    const { isAdmin } = GetContext();
     const navItemData = [
         {
             label: 'Home',

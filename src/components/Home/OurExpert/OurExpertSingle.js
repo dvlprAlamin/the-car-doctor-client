@@ -1,10 +1,20 @@
-import { Paper, Typography } from '@material-ui/core';
+import { makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import SocialButtonsContainer from 'react-social-media-buttons'
+const useStyle = makeStyles({
+    root: {
+        transition: 'all .3s linear',
+        '&:hover': {
+            transform: 'translateY(-5px)',
+            boxShadow: '0 0 15px rgba(0,0,0,.4)'
+        }
+    }
+})
 const OurExpertSingle = ({ expert }) => {
+    const { root } = useStyle();
     const { img, name, expertize } = expert;
     return (
-        <Paper>
+        <Paper className={root}>
             <img style={{ width: '100%', borderTop: '3px solid #F2184F' }} src={img} alt="" />
             <div style={{ textAlign: 'center', padding: 10 }}>
                 <Typography variant="h5" style={{ color: '#F2184F' }}>{name}</Typography>
