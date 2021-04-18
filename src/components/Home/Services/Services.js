@@ -11,17 +11,19 @@ const Services = () => {
             .then(res => setServices(res.data))
     }, [])
     return (
-        <Container id="services">
-            <SectionTitle icon={serviceIcon} text={'Our Services'} />
-            <Grid container spacing={3}>
-                {
-                    services.map(service =>
-                        <Grid key={service._id} item md={4} sm={6} xs={12}>
-                            <ServiceSingle service={service} />
-                        </Grid>)
-                }
-            </Grid>
-        </Container>
+        <div id="services">
+            <Container>
+                <SectionTitle icon={serviceIcon} text={'Our Services'} />
+                <Grid container spacing={3}>
+                    {
+                        services.map(service =>
+                            <Grid key={service._id} item md={4} sm={6} xs={12}>
+                                <ServiceSingle service={service} />
+                            </Grid>)
+                    }
+                </Grid>
+            </Container>
+        </div>
     );
 };
 

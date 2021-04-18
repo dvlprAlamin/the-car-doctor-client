@@ -14,6 +14,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import logo from '../../image/logo.png'
 import logoBlack from '../../image/logo-black.png'
 import { GetContext } from '../../context';
+import Services from '../Home/Services/Services'
+import ServiceSingle from '../Home/Services/ServiceSingle';
 const drawerWidth = 200;
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -103,7 +105,7 @@ const Navigation = () => {
         },
         {
             label: 'Services',
-            route: ''
+            route: 'services'
         },
         {
             label: 'Contact',
@@ -111,7 +113,7 @@ const Navigation = () => {
         },
         {
             label: 'Dashboard',
-            route: `${isAdmin ? '/ordered-services' : '/order'}`
+            route: '/order',
         },
     ]
     const { root, appBar, menuButton, drawerPaper, navbar, navItem, link, navItemDrawer } = useStyles()

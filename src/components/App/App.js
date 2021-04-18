@@ -29,8 +29,8 @@ const App = () => {
         <PublicRoute exact path='/' component={Home} />
         <PublicRoute exact path='/login' component={LoginSignUp} />
         <PublicRoute exact path='/signup' component={LoginSignUp} />
-        <PrivateRoute exact path='/ordered-services' >
-          {isAdmin ? <OrderedServices /> : <NotFound />}
+        <PrivateRoute exact path='/order'>
+          {isAdmin ? <OrderedServices /> : <Order />}
         </PrivateRoute>
         <PrivateRoute exact path='/add-service'>
           {isAdmin ? <AddService /> : <NotFound />}
@@ -41,9 +41,9 @@ const App = () => {
         <PrivateRoute exact path='/manage-services'>
           {isAdmin ? <ManageServices /> : <NotFound />}
         </PrivateRoute>
-        <PrivateRoute exact path='/order'>
+        {/* <PrivateRoute exact path='/place-order'>
           {isAdmin ? <NotFound /> : <Order />}
-        </PrivateRoute>
+        </PrivateRoute> */}
         <PrivateRoute exact path='/my-order'>
           {isAdmin ? <NotFound /> : <MyOrder />}
         </PrivateRoute>

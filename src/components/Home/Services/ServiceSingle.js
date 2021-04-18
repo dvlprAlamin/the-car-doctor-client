@@ -19,7 +19,7 @@ const ServiceSingle = ({ service }) => {
     const { setSelectedService, isAdmin } = GetContext()
     const selectServiceHandler = () => {
         setSelectedService(service)
-        history.push(isAdmin ? '/ordered-services' : '/order')
+        history.push('/order')
     }
     return (
         <Paper className={root}>

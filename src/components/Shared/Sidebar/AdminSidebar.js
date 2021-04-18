@@ -8,7 +8,7 @@ const AdminSidebar = () => {
     const sidebarItems = [
         {
             label: 'Ordered Services',
-            route: '/ordered-services',
+            route: '/order',
             Icon: ViewListIcon
         },
         {
