@@ -14,7 +14,7 @@ const useStyle = makeStyles({
         linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))`,
         backgroundBlendMode: 'overlay',
         // height: 'calc(50vh - 64px)',
-        padding: '60px 15px',
+        padding: '150px 15px',
         width: '100%',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -49,13 +49,13 @@ const data = [
 const OurAchievement = () => {
     const { root } = useStyle()
     return (
-        <>
+        <div id="achievement">
             <Container>
                 <SectionTitle icon={achievementIcon} text={'Our Achievement'} />
             </Container>
             <section className={root}>
                 <Container>
-                    <Grid container spacing={3} justify='center'>
+                    <Grid container spacing={5} justify='center'>
                         {
                             data.map(({ Icon, count, text }, i) =>
                                 <Grid key={i} item md={3} sm={6} xs={12} style={{ textAlign: 'center' }}>
@@ -69,7 +69,7 @@ const OurAchievement = () => {
                     </Grid>
                 </Container>
             </section>
-        </>
+        </div>
     );
 };
 

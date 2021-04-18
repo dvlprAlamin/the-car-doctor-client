@@ -14,7 +14,7 @@ const Testimonial = () => {
             .then(res => setReviews(res.data))
     }, [])
     return (
-        <Container style={{ marginBottom: 100 }}>
+        <Container style={{ marginBottom: 50 }}>
             <SectionTitle icon={titleIcon} text={"WHAT CLIENTS SAY ?"} />
             <Carousel
                 animation="slide"

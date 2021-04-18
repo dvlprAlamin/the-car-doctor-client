@@ -3,7 +3,7 @@ import React from 'react';
 
 const SectionTitle = ({ icon, text }) => {
     return (
-        <div style={{ display: 'flex', margin: '50px 0' }}>
+        <div style={{ display: 'flex', padding: '55px 0' }}>
             <img style={{ marginRight: 10 }} src={icon} alt="" />
             <div>
                 <Typography variant="h4" style={{ textTransform: 'uppercase' }}>{text}</Typography>

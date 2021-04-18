@@ -1,4 +1,4 @@
-import { Button, Grid, List, ListItem, TextField, Typography } from '@material-ui/core';
+import { Button, Grid, List, ListItem, Typography } from '@material-ui/core';
 import React from 'react';
 import SocialButtonsContainer from 'react-social-media-buttons';
 const FooterMiddle = () => {

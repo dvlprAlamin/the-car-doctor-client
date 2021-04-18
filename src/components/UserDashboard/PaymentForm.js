@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { GetContext } from '../../context';
 
 const PaymentForm = ({ paymentOrderToggler, setPaymentOrderToggler }) => {
-    const { paymentSuccess, setPaymentSuccess, selectedService } = GetContext();
+    const { setPaymentSuccess, selectedService } = GetContext();
     const stripe = useStripe();
     const elements = useElements();
     const [paymentError, setPaymentError] = useState('')

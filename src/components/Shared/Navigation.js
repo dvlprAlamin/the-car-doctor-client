@@ -13,9 +13,6 @@ import { Button, Container } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import logo from '../../image/logo.png'
 import logoBlack from '../../image/logo-black.png'
-import { GetContext } from '../../context';
-import Services from '../Home/Services/Services'
-import ServiceSingle from '../Home/Services/ServiceSingle';
 const drawerWidth = 200;
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -97,25 +94,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navigation = () => {
-    const { isAdmin } = GetContext();
-    const navItemData = [
-        {
-            label: 'Home',
-            route: '/'
-        },
-        {
-            label: 'Services',
-            route: 'services'
-        },
-        {
-            label: 'Contact',
-            route: ''
-        },
-        {
-            label: 'Dashboard',
-            route: '/order',
-        },
-    ]
     const { root, appBar, menuButton, drawerPaper, navbar, navItem, link, navItemDrawer } = useStyles()
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -127,19 +105,46 @@ const Navigation = () => {
         <div style={{ textAlign: 'center' }}>
             <img src={logoBlack} style={{ maxWidth: '90%', margin: '20px auto' }} alt="Logo" />
             <Divider />
-            {
-                navItemData.map(({ label, route }, i) =>
-                    <>
-                        <Link key={i} to={route} className={link}>
-                            <ListItem button
-                                className={navItemDrawer}
-                            >
-                                <ListItemText primary={label} />
-                            </ListItem>
-                        </Link>
-                        <Divider />
-                    </>
-                )}
+            <Link to='/' className={link}>
+                <ListItem button
+                    className={navItemDrawer}
+                >
+                    <ListItemText primary={'Home'} />
+                </ListItem>
+            </Link>
+            <Divider />
+            <a href='#services' className={link}>
+                <ListItem button
+                    className={navItemDrawer}
+                >
+                    <ListItemText primary={'Services'} />
+                </ListItem>
+            </a>
+            <Divider />
+            <a href='#achievement' className={link}>
+                <ListItem button
+                    className={navItemDrawer}
+                >
+                    <ListItemText primary={'Achievement'} />
+                </ListItem>
+            </a>
+            <Divider />
+            <a href='#contact' className={link}>
+                <ListItem button
+                    className={navItemDrawer}
+                >
+                    <ListItemText primary={'Contact'} />
+                </ListItem>
+            </a>
+            <Divider />
+            <Link to='/order' className={link}>
+                <ListItem button
+                    className={navItemDrawer}
+                >
+                    <ListItemText primary={'Dashboard'} />
+                </ListItem>
+            </Link>
+            <Divider />
         </div>
     );
     return (
@@ -181,19 +186,31 @@ const Navigation = () => {
                 <img src={logo} style={{ maxWidth: 250, flex: 1 }} alt="Logo" />
                 <div style={{ flex: 3, textAlign: 'right' }}>
                     <span>
-                        {
-                            navItemData.map(({ label, route }) =>
-                                <Link
-                                    key={label}
-                                    className={link}
-                                    to={route}
-                                    style={{ margin: '0 15px' }}
-                                >
-                                    <Button>
-                                        <span className={navItem}>{label}</span>
-                                    </Button>
-                                </Link>)
-                        }
+                        <Link className={link} to='/'>
+                            <Button>
+                                <span className={navItem}>Home</span>
+                            </Button>
+                        </Link>
+                        <a className={link} href='#services'>
+                            <Button>
+                                <span className={navItem}>Services</span>
+                            </Button>
+                        </a>
+                        <a className={link} href='#achievement'>
+                            <Button>
+                                <span className={navItem}>Achievement</span>
+                            </Button>
+                        </a>
+                        <a className={link} href='#contact'>
+                            <Button>
+                                <span className={navItem}>Contact</span>
+                            </Button>
+                        </a>
+                        <Link className={link} to='/order'>
+                            <Button>
+                                <span className={navItem}>Dashboard</span>
+                            </Button>
+                        </Link>
                     </span>
                 </div>
             </Container>

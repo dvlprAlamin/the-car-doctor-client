@@ -1,11 +1,10 @@
-import { Button, Container, Grid, ListItem, Paper, Radio, Select, TextField, Typography } from '@material-ui/core';
+import { Button, Container, Grid, Paper, Radio, Select, TextField, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GetContext } from '../../context';
 import PageTitle from '../Shared/PageTitle';
 import UserSidebar from '../Shared/Sidebar/UserSidebar';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { CardElement } from '@stripe/react-stripe-js';
 import PaymentForm from './PaymentForm';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import axios from 'axios';
@@ -36,12 +35,11 @@ const Order = () => {
             status: 'Pending',
             date: new Date()
         };
-        console.log(orderData);
 
         axios.post('https://arcane-sands-09318.herokuapp.com/addOrder', orderData)
             .then(res => {
                 if (res.data) {
-                    // history.push('/my-order');
+                    history.push('/my-order');
                     setPaymentOrderToggler(false)
                 }
             })

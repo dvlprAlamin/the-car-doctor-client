@@ -1,4 +1,4 @@
-import { Button, Container, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@material-ui/core';
+import { Button, Container, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -27,9 +27,9 @@ const ManageServices = () => {
     return (
         <>
             <AdminSidebar />
-            {loading ? <Loader /> :
-                <Container className='sidebarContainer'>
-                    <PageTitle text="Manage Services" />
+            <Container className='sidebarContainer'>
+                <PageTitle text="Manage Services" />
+                {loading ? <Loader /> :
                     <TableContainer>
                         <Table width="100%">
                             <TableBody>
@@ -58,8 +58,8 @@ const ManageServices = () => {
 
                             </TableBody>
                         </Table>
-                    </TableContainer>
-                </Container>}
+                    </TableContainer>}
+            </Container>
         </>
     );
 };

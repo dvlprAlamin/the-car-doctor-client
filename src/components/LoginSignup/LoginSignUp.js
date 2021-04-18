@@ -183,11 +183,12 @@ export default function LoginSignUp() {
                     {pathname === '/signup' ?
                         <span>Already have an account? <Link to="/login">
                             Log in
-            </Link></span> :
+                        </Link></span> :
                         <span>Don't have an account? <Link to="/signup">
                             Sign Up
-            </Link></span>}
-                    <Button style={{ marginTop: 10 }} onClick={googleSignInHandler} variant="contained">Continue with Google</Button>
+                        </Link></span>}
+                    <Typography variant="h6">-OR-</Typography>
+                    <Button style={{ marginTop: 10, background: '#202C45', color: '#fff' }} onClick={googleSignInHandler} variant="contained">Continue with Google</Button>
                 </div>
             </Paper>
         </Container>

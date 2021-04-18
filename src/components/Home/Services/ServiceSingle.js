@@ -16,7 +16,7 @@ const ServiceSingle = ({ service }) => {
     const { root } = useStyle();
     const history = useHistory()
     const { title, fee, image, description } = service;
-    const { setSelectedService, isAdmin } = GetContext()
+    const { setSelectedService } = GetContext()
     const selectServiceHandler = () => {
         setSelectedService(service)
         history.push('/order')
