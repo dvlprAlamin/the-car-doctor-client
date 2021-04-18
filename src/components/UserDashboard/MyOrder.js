@@ -19,12 +19,12 @@ const MyOrder = () => {
     return (
         <>
             <UserSidebar />
-            <Container style={{ padding: '20px 0 20px 200px' }}>
+            <Container className='sidebarContainer'>
                 <PageTitle text="My Order" />
                 <Grid container spacing={3}>
                     {
                         orders.map(({ _id, service, fee, status, date }) =>
-                            <Grid key={_id} item lg={4}>
+                            <Grid key={_id} item lg={4} sm={6} xs={12}>
                                 <Paper elevation={3} style={{ padding: 15, textAlign: 'center' }}>
                                     <Button
                                         disabled

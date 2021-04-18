@@ -59,15 +59,16 @@ const CarouselItem = ({ item }) => {
         borderRight: '3px solid #F2184F',
         borderRadius: 40,
         padding: '0 20px',
-        marginBottom: 10
+        marginBottom: 10,
+        fontSize: 'calc(2.5vmax + 20px)'
     }
 
     return (
         <section style={bannerStyle}>
             <Container style={{ textAlign: textPosition }}>
-                <Typography variant="h1">{titleText}</Typography>
+                <Typography style={{ fontSize: 'calc(5vmax + 40px)' }} variant="h1">{titleText}</Typography>
                 <Typography variant="h3" style={slugStyle}>{slugText}</Typography>
-                <Typography variant="body1">
+                <Typography style={{ fontSize: 'calc(1vmax + 10px)' }} variant="body1">
                     We provides always our best services for our clients and always <br />
                     try to achieve our client's trust and satisfaction.
                 </Typography>

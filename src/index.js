@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import { ContextProvider } from './context';
-
+import './index.css'
 ReactDOM.render(
   <React.StrictMode>
     <ContextProvider>

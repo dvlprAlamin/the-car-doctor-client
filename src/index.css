@@ -1,0 +1,11 @@
+/* sidebar pages common style */
+@media (min-width: 960px) {
+  .sidebarContainer {
+    padding: 20px 15px 20px 215px !important;
+  }
+}
+@media (max-width: 960px) {
+  .sidebarContainer {
+    padding-top: 80px !important;
+  }
+}

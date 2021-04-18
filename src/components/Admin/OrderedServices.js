@@ -21,7 +21,7 @@ const OrderedServices = () => {
     return (
         <>
             <AdminSidebar />
-            <Container style={{ padding: '20px 0 20px 200px' }}>
+            <Container className='sidebarContainer'>
                 <PageTitle text="Ordered Services" />
                 <TableContainer>
                     <Table>

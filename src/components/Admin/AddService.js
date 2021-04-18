@@ -1,4 +1,4 @@
-import { Button, Container, Grid, IconButton, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
+import { Button, Container, Grid, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import axios from 'axios';
 import React, { useState } from 'react';
@@ -6,37 +6,31 @@ import Loader from '../Shared/Loader';
 import AdminSidebar from '../Shared/Sidebar/AdminSidebar';
 import PageTitle from '../Shared/PageTitle';
 const useStyles = makeStyles((theme) => ({
-    title: {
-        marginBottom: 20,
-        marginTop: 0,
-        fontWeight: 700,
-        color: '#F2184F',
-        fontSize: 'calc(1vmax + 20px)',
-        '@media(max-width:960px)': {
-            margin: '2rem 0',
-        }
-    },
-    fieldItem: {
+    textArea: {
         width: '100%',
-        padding: 'calc(1vmax + 5px)',
-        border: '1px solid',
-        borderColor: '#202C45',
+        border: '1px solid lightgray',
+        padding: 10,
+        fontFamily: 'inherit',
+        fontSize: 17,
         borderRadius: 3,
-        fontSize: 'calc(1vmax + 5px)',
+        '&:hover': {
+            border: '1px solid #000',
+        },
         '&:focus': {
             color: '#616161',
-            outline: 0
-        }
+            outline: 0,
+            border: '2px solid',
+            borderColor: theme.palette.primary.main
+        },
+        '&::placeholder': {
+            opacity: .7,
+        },
     },
-    fieldLabel: {
-        color: '#202C45',
-        fontSize: 'calc(1vmax + 10px)',
-        fontWeight: 600
-    }
+
 }))
 
 const AddService = () => {
-    const { fieldLabel, fieldItem, title } = useStyles();
+    const { textArea } = useStyles();
     const [imageURL, setImageURL] = useState('');
     const [imageName, setImageName] = useState('');
     const [loading, setLoading] = useState(false);
@@ -84,12 +78,12 @@ const AddService = () => {
     return (
         <>
             <AdminSidebar />
-            <Container style={{ padding: '20px 0 20px 200px' }}>
+            <Container className='sidebarContainer'>
                 <PageTitle text="Add Service" />
                 <Paper style={{ maxWidth: 800, margin: '2rem auto', padding: 20 }}>
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={3}>
-                            <Grid item lg={6}>
+                            <Grid item lg={6} xs={12}>
                                 <Typography variant="h5">Service Title</Typography>
                                 <TextField
                                     fullWidth
@@ -100,7 +94,7 @@ const AddService = () => {
                                     placeholder="Enter service title"
                                 />
                             </Grid>
-                            <Grid item lg={6}>
+                            <Grid item lg={6} xs={12}>
                                 <Typography variant="h5">Service Fee</Typography>
                                 <TextField
                                     fullWidth
@@ -111,16 +105,17 @@ const AddService = () => {
                                     placeholder="Enter service Fee"
                                 />
                             </Grid>
-                            <Grid item lg={6}>
+                            <Grid item lg={6} xs={12}>
                                 <Typography variant="h5">Description</Typography>
                                 <textarea
-                                    className={fieldItem}
+                                    className={textArea}
+                                    rows={5}
                                     name="description"
                                     onBlur={blurHandler}
                                     placeholder="Enter service description"
                                 />
                             </Grid>
-                            <Grid item lg={6}>
+                            <Grid item lg={6} xs={12}>
                                 <Typography variant="h5">Upload Image</Typography>
                                 <input
                                     style={{ display: 'none' }}
@@ -142,7 +137,9 @@ const AddService = () => {
                                 </label>
                             </Grid>
                         </Grid>
-                        <Button type="submit" disabled={loading} variant="contained" color="secondary" style={{ fontSize: 17, marginTop: 10 }}>Save</Button>
+                        <div style={{ textAlign: 'center' }}>
+                            <Button type="submit" disabled={loading} variant="contained" color="secondary" style={{ fontSize: 17, marginTop: 10 }}>Save</Button>
+                        </div>
                         {loading && <Loader />}
                     </form>
                 </Paper>

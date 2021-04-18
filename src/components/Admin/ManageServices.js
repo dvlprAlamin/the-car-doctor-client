@@ -28,7 +28,7 @@ const ManageServices = () => {
         <>
             <AdminSidebar />
             {loading ? <Loader /> :
-                <Container style={{ padding: '20px 0 20px 200px' }}>
+                <Container className='sidebarContainer'>
                     <PageTitle text="Manage Services" />
                     <TableContainer>
                         <Table width="100%">

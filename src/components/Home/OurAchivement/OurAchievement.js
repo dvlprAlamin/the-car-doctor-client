@@ -55,10 +55,10 @@ const OurAchievement = () => {
             </Container>
             <section className={root}>
                 <Container>
-                    <Grid container justify='center'>
+                    <Grid container spacing={3} justify='center'>
                         {
                             data.map(({ Icon, count, text }, i) =>
-                                <Grid key={i} item md={3} style={{ textAlign: 'center' }}>
+                                <Grid key={i} item md={3} sm={6} xs={12} style={{ textAlign: 'center' }}>
                                     <Icon style={{ color: '#F2184F', fontSize: 60 }} />
                                     <Typography variant="h3">
                                         <CountUp end={count} duration={2.75} />

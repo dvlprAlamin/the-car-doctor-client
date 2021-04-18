@@ -49,19 +49,19 @@ const Order = () => {
     return (
         <>
             <UserSidebar />
-            <Container style={{ padding: '20px 0 20px 200px' }}>
+            <Container className='sidebarContainer'>
                 <PageTitle text="Order" />
                 <Paper elevation={3} style={{ maxWidth: 800, margin: '20px auto', padding: 20 }}>
                     <Grid container spacing={3}>
-                        <Grid item lg={12}>
+                        <Grid item lg={12} xs={12}>
                             <Typography variant="h5">Name</Typography>
                             <TextField fullWidth variant="outlined" defaultValue={loggedInUser.displayName} />
                         </Grid>
-                        <Grid item lg={12}>
+                        <Grid item lg={12} xs={12}>
                             <Typography variant="h5">Email</Typography>
                             <TextField fullWidth variant="outlined" defaultValue={loggedInUser.email} />
                         </Grid>
-                        <Grid item lg={12}>
+                        <Grid item lg={12} xs={12}>
                             <Typography variant="h5">Service</Typography>
                             <Select
                                 fullWidth
@@ -74,11 +74,11 @@ const Order = () => {
                                 }
                             </Select>
                         </Grid>
-                        <Grid item lg={12}>
+                        <Grid item lg={12} xs={12}>
                             <Typography variant="caption">Pay with</Typography>
                             <Typography variant="h5"><Radio checked /><CreditCardIcon /> Credit Card</Typography>
                         </Grid>
-                        <Grid item lg={12}>
+                        <Grid item lg={12} xs={12}>
                             <Elements stripe={stripePromise}>
                                 <PaymentForm
                                     paymentOrderToggler={paymentOrderToggler}

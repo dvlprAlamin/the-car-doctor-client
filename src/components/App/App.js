@@ -22,7 +22,7 @@ import PublicRoute from './PublicRoute';
 
 const App = () => {
   const { isAdmin } = GetContext();
-  console.log(isAdmin);
+
   return (
     <Router>
       <Switch>

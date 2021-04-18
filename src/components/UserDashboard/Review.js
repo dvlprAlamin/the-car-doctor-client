@@ -57,12 +57,12 @@ const Review = () => {
     return (
         <>
             <UserSidebar />
-            <Container style={{ padding: '20px 0 20px 200px' }}>
-                <PageTitle text="Add Service" />
+            <Container className='sidebarContainer'>
+                <PageTitle text="Review" />
                 <Paper style={{ maxWidth: 800, margin: '2rem auto', padding: 20 }}>
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={3}>
-                            <Grid item lg={12}>
+                            <Grid item lg={12} xs={12}>
                                 <TextField
                                     fullWidth
                                     name="name"
@@ -72,25 +72,25 @@ const Review = () => {
                                     placeholder="Enter Name"
                                 />
                             </Grid>
-                            <Grid item lg={12}>
+                            <Grid item lg={12} xs={12}>
                                 <TextField
                                     fullWidth
                                     name="designation"
                                     onBlur={blurHandler}
                                     variant="outlined"
                                     color="text-primary"
-                                    placeholder="Enter Company’s name, Designation"
+                                    placeholder="Enter designation, Company’s name"
                                 />
                             </Grid>
-                            <Grid item lg={12}>
+                            <Grid item lg={12} xs={12}>
                                 <textarea
                                     style={{
                                         width: '100%',
-                                        padding: 15,
-                                        border: '1px solid lightgray',
-                                        borderColor: '#202C45',
+                                        border: '1px solid #ccc',
+                                        padding: 12,
+                                        fontFamily: 'inherit',
+                                        fontSize: 17,
                                         borderRadius: 3,
-                                        fontSize: 18
                                     }}
                                     rows="5"
                                     name="description"
@@ -98,7 +98,7 @@ const Review = () => {
                                     placeholder="Enter description"
                                 />
                             </Grid>
-                            <Grid item lg={12}>
+                            <Grid item lg={12} xs={12}>
                                 <Typography variant="body1" component="span">Choose Photo</Typography>
                                 <input
                                     style={{ display: 'none' }}
@@ -117,7 +117,7 @@ const Review = () => {
                                     <span>{imageName}</span>
                                 </label>
                             </Grid>
-                            <Grid item lg={12}>
+                            <Grid item lg={12} xs={12}>
                                 <Ratings
                                     ratingValue={ratingValue}
                                     setRatingValue={setRatingValue}
