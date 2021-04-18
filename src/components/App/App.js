@@ -2,18 +2,14 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
 } from "react-router-dom";
 import { GetContext } from '../../context';
 import AddAdmin from '../Admin/AddAdmin';
 import AddService from '../Admin/AddService';
 import ManageServices from '../Admin/ManageServices';
 import OrderedServices from '../Admin/OrderedServices';
-import Banner from '../Home/Banner/Banner';
 import Home from '../Home/Home';
-import Services from '../Home/Services/Services';
 import LoginSignUp from '../LoginSignup/LoginSignUp';
-import Navigation from '../Shared/Navigation';
 import NotFound from '../Shared/NotFound';
 import MyOrder from '../UserDashboard/MyOrder';
 import Order from '../UserDashboard/Order';
@@ -44,9 +40,6 @@ const App = () => {
         <PrivateRoute exact path='/manage-services'>
           {isAdmin ? <ManageServices /> : <NotFound />}
         </PrivateRoute>
-        {/* <PrivateRoute exact path='/place-order'>
-          {isAdmin ? <NotFound /> : <Order />}
-        </PrivateRoute> */}
         <PrivateRoute exact path='/my-order'>
           {isAdmin ? <NotFound /> : <MyOrder />}
         </PrivateRoute>

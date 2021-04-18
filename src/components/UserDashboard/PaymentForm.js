@@ -28,7 +28,6 @@ const PaymentForm = ({ paymentOrderToggler, setPaymentOrderToggler }) => {
             setPaymentSuccess(paymentMethod.id)
             setPaymentOrderToggler(true);
             event.target.reset();
-            console.log('[PaymentMethod]', paymentMethod);
         }
     };
     return (

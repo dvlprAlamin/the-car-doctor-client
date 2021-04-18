@@ -13,7 +13,6 @@ const useStyle = makeStyles({
         background: `url(${bgImg}),
         linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))`,
         backgroundBlendMode: 'overlay',
-        // height: 'calc(50vh - 64px)',
         padding: '150px 15px',
         width: '100%',
         backgroundRepeat: 'no-repeat',

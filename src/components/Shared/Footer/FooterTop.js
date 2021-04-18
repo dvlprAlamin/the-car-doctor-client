@@ -1,4 +1,4 @@
-import { Divider, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
+import { Grid, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
 import React from 'react';
 import logo from '../../../image/logo.png'
 import PhoneIcon from '@material-ui/icons/Phone';
