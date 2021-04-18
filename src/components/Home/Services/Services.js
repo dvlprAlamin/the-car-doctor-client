@@ -7,7 +7,7 @@ import axios from 'axios';
 const Services = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:4000/services')
+        axios.get('https://arcane-sands-09318.herokuapp.com/services')
             .then(res => setServices(res.data))
     }, [])
     return (

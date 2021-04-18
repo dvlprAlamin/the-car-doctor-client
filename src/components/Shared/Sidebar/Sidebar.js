@@ -8,8 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import logo from '../../../image/logo.png'
@@ -67,8 +66,7 @@ const useStyles = makeStyles((theme) => ({
             width: '100%',
             display: 'none',
         },
-        background: theme.palette.primary.main,
-        top: 48,
+        background: "#202C45",
         boxShadow: 'none'
     },
     menuButton: {

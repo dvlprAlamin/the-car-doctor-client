@@ -17,11 +17,11 @@ const Order = () => {
     const [paymentOrderToggler, setPaymentOrderToggler] = useState(false)
     const [services, setServices] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:4000/services')
+        axios.get('https://arcane-sands-09318.herokuapp.com/services')
             .then(res => setServices(res.data))
     }, [])
     const selectedServiceHandler = title => {
-        axios.get(`http://localhost:4000/service/${title}`)
+        axios.get(`https://arcane-sands-09318.herokuapp.com/service/${title}`)
             .then(res => setSelectedService(res.data[0]))
     }
 
@@ -38,7 +38,7 @@ const Order = () => {
         };
         console.log(orderData);
 
-        axios.post('http://localhost:4000/addOrder', orderData)
+        axios.post('https://arcane-sands-09318.herokuapp.com/addOrder', orderData)
             .then(res => {
                 if (res.data) {
                     // history.push('/my-order');

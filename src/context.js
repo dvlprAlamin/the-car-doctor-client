@@ -15,7 +15,7 @@ export const ContextProvider = ({ children }) => {
     const [isAdmin, setIsAdmin] = useState(false);
     const email = loggedInUser?.email
     useEffect(() => {
-        axios.post('http://localhost:4000/admin', { email: email })
+        axios.post('https://arcane-sands-09318.herokuapp.com/admin', { email: email })
             .then(res => {
                 setIsAdmin(res.data)
             })

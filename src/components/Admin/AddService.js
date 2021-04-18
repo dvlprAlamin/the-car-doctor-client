@@ -70,7 +70,7 @@ const AddService = () => {
         }
         console.log(serviceData);
         setLoading(true);
-        axios.post('http://localhost:4000/addService', serviceData)
+        axios.post('https://arcane-sands-09318.herokuapp.com/addService', serviceData)
             .then(res => {
                 console.log(res.data);
                 res.data && e.target.reset();

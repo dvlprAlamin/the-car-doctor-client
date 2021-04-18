@@ -8,11 +8,11 @@ import { CreditCard } from '@material-ui/icons';
 const OrderedServices = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:4000/allOrders')
+        axios.get('https://arcane-sands-09318.herokuapp.com/allOrders')
             .then(res => setOrders(res.data))
     }, []);
     const updateOrderStatusHandler = (id, status) => {
-        axios.patch(`http://localhost:4000/update/${id}`, { status })
+        axios.patch(`https://arcane-sands-09318.herokuapp.com/update/${id}`, { status })
             .then(res => {
                 console.log(res);
             })

@@ -10,7 +10,7 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const email = loggedInUser?.email
     useEffect(() => {
-        axios.post('http://localhost:4000/orders', { email: email })
+        axios.post('https://arcane-sands-09318.herokuapp.com/orders', { email: email })
             .then(res => {
                 setOrders(res.data)
             })

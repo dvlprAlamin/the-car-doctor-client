@@ -42,7 +42,7 @@ const Review = () => {
             image: imageURL
         }
         setLoading(true);
-        axios.post('http://localhost:4000/addReview', review)
+        axios.post('https://arcane-sands-09318.herokuapp.com/addReview', review)
             .then(res => {
                 console.log(res.data);
                 res.data && e.target.reset();

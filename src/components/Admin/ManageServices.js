@@ -11,7 +11,7 @@ const ManageServices = () => {
     const [loading, setLoading] = useState(true)
     const [processing, setProcessing] = useState(false)
     useEffect(() => {
-        axios.get('http://localhost:4000/services')
+        axios.get('https://arcane-sands-09318.herokuapp.com/services')
             .then(res => {
                 setServices(res.data);
                 setLoading(false)
@@ -19,7 +19,7 @@ const ManageServices = () => {
     }, [services]);
     const deleteServiceHandler = id => {
         setProcessing(true)
-        axios.delete(`http://localhost:4000/delete/${id}`)
+        axios.delete(`https://arcane-sands-09318.herokuapp.com/delete/${id}`)
             .then(res => {
                 res.data && setProcessing(false)
             })
