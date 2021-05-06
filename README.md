@@ -3,9 +3,9 @@ Welcome to the car doctor. This website is a car repair service website. This re
 <img src="https://i.ibb.co/KLbxZwQ/cardoctor.png" />
 
 ### Features:
-•	Responsive MERN Stack app with firebase and admin authentication, dashboard functionality for admin and customer.
-•	Customer can book service, check status, and able to give their feedback.
-•	Admin can add or remove services, add new admin, and also change order status.
+- Responsive MERN Stack app with firebase and admin authentication, dashboard functionality for admin and customer.
+- Customer can book service, check status, and able to give their feedback.
+- Admin can add or remove services, add new admin, and also change order status.
 
 ### Technology:
 - React js
