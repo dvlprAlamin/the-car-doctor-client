@@ -15,10 +15,9 @@ const Logout = () => {
     return (
         <>
             {loggedInUser &&
-                <div style={{ display: 'flex' }}>
-                    <Avatar src={loggedInUser.photoURL} />
+                <div style={{ textAlign: 'center' }}>
                     <Button
-                        style={{ marginLeft: 10 }}
+                        style={{ marginBottom: 30, marginTop: 20 }}
                         onClick={logOutHandler}
                         variant="contained"
                         color="secondary">Logout</Button>

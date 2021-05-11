@@ -8,6 +8,7 @@ import axios from 'axios';
 const Services = () => {
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true)
+
     useEffect(() => {
         axios.get('https://arcane-sands-09318.herokuapp.com/services')
             .then(res => {

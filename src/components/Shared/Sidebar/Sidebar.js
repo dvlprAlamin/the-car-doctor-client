@@ -10,8 +10,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from '../../../image/logo.png'
+import { Home } from '@material-ui/icons';
+import Logout from '../Logout';
 const drawerWidth = 200;
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,18 +28,20 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         padding: '.8rem 0',
         paddingLeft: '10%',
-        opacity: '.8',
+        opacity: .8,
         transition: '.3s linear',
         borderRight: '4px solid transparent',
         '&:hover': {
-            opacity: '1',
+            opacity: 1,
             borderColor: theme.palette.secondary.main,
             color: theme.palette.secondary.main,
         },
 
     },
     active: {
-        borderColor: theme.palette.primary.main,
+        opacity: 1,
+        borderColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.main,
     },
     sidebarIcon: {
         color: theme.palette.secondary.main,
@@ -88,6 +92,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Sidebar = ({ sidebarItems }) => {
+    const { pathname } = useLocation();
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -96,18 +101,29 @@ const Sidebar = ({ sidebarItems }) => {
     };
 
     const drawer = (
-        <div>
-            <Link to='/'><img src={logo} style={{ maxWidth: '90%', margin: '20px auto' }} alt="Logo" /></Link>
-            <Divider />
-            {
-                sidebarItems.map(({ label, route, Icon }, i) =>
-                    <Link to={route} className={classes.link}>
-                        <ListItem button className={classes.sidebarItem} >
-                            <Icon className={classes.sidebarIcon} />
-                            <ListItemText primary={label} />
-                        </ListItem>
-                    </Link>)
-            }
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+            <div>
+                <Link to='/'><img src={logo} style={{ maxWidth: '90%', margin: '20px auto' }} alt="Logo" /></Link>
+                <Divider />
+                <Link to='/' className={classes.link}>
+                    <ListItem button className={classes.sidebarItem} >
+                        <Home className={classes.sidebarIcon} />
+                        <ListItemText primary={'Home'} />
+                    </ListItem>
+                </Link>
+                <Divider />
+                {
+                    sidebarItems.map(({ label, route, Icon }, i) =>
+                        <Link to={route} className={classes.link}>
+                            <ListItem button className={`${classes.sidebarItem} ${pathname === route && classes.active}`} >
+                                <Icon className={classes.sidebarIcon} />
+                                <ListItemText primary={label} />
+                            </ListItem>
+                        </Link>)
+                }
+            </div>
+
+            <Logout />
         </div>
     );
     return (

@@ -4,7 +4,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles({
     root: {
-        position: 'fixed',
+        position: 'absolute',
         top: '50vh',
         left: '50%',
         transform: 'translateX(-50%)'

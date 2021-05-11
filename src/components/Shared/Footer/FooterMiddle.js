@@ -7,6 +7,7 @@ const FooterMiddle = () => {
         outline: 0,
         width: 'calc(100% - 120px)',
         height: 45,
+        paddingLeft: 10,
         borderRadius: '5px 0 0 5px'
     }
     return (

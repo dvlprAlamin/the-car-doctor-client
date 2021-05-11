@@ -83,7 +83,7 @@ const AddService = () => {
                 <Paper style={{ maxWidth: 800, margin: '2rem auto', padding: 20 }}>
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={3}>
-                            <Grid item lg={6} xs={12}>
+                            <Grid item xs={12}>
                                 <Typography variant="h5">Service Title</Typography>
                                 <TextField
                                     fullWidth
@@ -94,7 +94,7 @@ const AddService = () => {
                                     placeholder="Enter service title"
                                 />
                             </Grid>
-                            <Grid item lg={6} xs={12}>
+                            <Grid item xs={12}>
                                 <Typography variant="h5">Service Fee</Typography>
                                 <TextField
                                     fullWidth
@@ -105,7 +105,7 @@ const AddService = () => {
                                     placeholder="Enter service Fee"
                                 />
                             </Grid>
-                            <Grid item lg={6} xs={12}>
+                            <Grid item xs={12}>
                                 <Typography variant="h5">Description</Typography>
                                 <textarea
                                     className={textArea}
@@ -115,7 +115,7 @@ const AddService = () => {
                                     placeholder="Enter service description"
                                 />
                             </Grid>
-                            <Grid item lg={6} xs={12}>
+                            <Grid item xs={12}>
                                 <Typography variant="h5">Upload Image</Typography>
                                 <input
                                     style={{ display: 'none' }}
